@@ -1,5 +1,6 @@
 package com.monolith.messaging.services.monolith.controller;
 
+import com.monolith.messaging.services.monolith.model.DTO.MessageDTO;
 import com.monolith.messaging.services.monolith.model.Message;
 import com.monolith.messaging.services.monolith.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,5 +19,5 @@ public class MessageController {
     public List<Message> findAll() { return messageService.findAll(); }
 
     @PostMapping("")
-    public Message save(@RequestBody Message message) { return messageService.save(message); }
+    public Message save(@RequestBody MessageDTO messageDTO) { return messageService.save(messageDTO); }
 }
