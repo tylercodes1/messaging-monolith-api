@@ -22,7 +22,6 @@ public class SwaggerConfig {
     public Object api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .host(hostUrl)
-                .groupName("group name")
                 .select()
                 .apis(RequestHandlerSelectors.any())
                 .paths(PathSelectors.any())
