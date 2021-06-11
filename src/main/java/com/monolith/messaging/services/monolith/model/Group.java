@@ -5,9 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data
@@ -24,7 +21,4 @@ public class Group {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int groupId;
     private String groupName;
-    
-    @ManyToMany(mappedBy = "groups", cascade = { CascadeType.ALL })
-    private Set<User> users = new HashSet<>();
 }

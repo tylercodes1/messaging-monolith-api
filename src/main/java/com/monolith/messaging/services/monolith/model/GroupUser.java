@@ -6,17 +6,20 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "user")
-public class User {
+public class GroupUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int userId;
-    private String firstName;
-    private String lastName;
-    private String username;
-    private String email;
+    private int id;
+
+    @OneToOne(cascade = {CascadeType.PERSIST})
+    @JoinColumn(name = "user_id")
+    private User userId;
+
+    @OneToOne(cascade = {CascadeType.PERSIST})
+    @JoinColumn(name = "group_id")
+    private Group group;
 }
