@@ -1,6 +1,7 @@
 package com.monolith.messaging.services.monolith.controller;
 
 import com.monolith.messaging.services.monolith.model.Group;
+import com.monolith.messaging.services.monolith.model.GroupUser;
 import com.monolith.messaging.services.monolith.service.GroupService;
 import org.hibernate.annotations.GeneratorType;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,12 +23,16 @@ public class GroupController {
     }
 
     @GetMapping("/{id}")
-    public Group findByGroupId(@PathVariable int id) {
+    public Group findByGroupId(@PathVariable("id") int id) {
         return groupService.findByGroupId(id);
     }
+
+    @GetMapping("/user/{id}")
+    public List<GroupUser> findGroupsByUserId(@PathVariable("id") int id) { return groupService.findGroupsByUserId(id); }
 
     @PostMapping("")
     public Group save(@RequestBody Group group) {
         return groupService.save(group);
     }
+
 }

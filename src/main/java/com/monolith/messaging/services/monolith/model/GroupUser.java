@@ -17,7 +17,7 @@ public class GroupUser {
 
     @OneToOne(cascade = {CascadeType.PERSIST})
     @JoinColumn(name = "user_id")
-    private User userId;
+    private User user;
 
     @OneToOne(cascade = {CascadeType.PERSIST})
     @JoinColumn(name = "group_id")
