@@ -11,4 +11,5 @@ public class MessageDTO {
     private int messageId;
     private String message;
     private int userId;
+    private int groupId;
 }

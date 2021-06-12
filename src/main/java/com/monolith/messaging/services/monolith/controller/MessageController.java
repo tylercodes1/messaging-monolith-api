@@ -18,6 +18,11 @@ public class MessageController {
     @GetMapping("")
     public List<Message> findAll() { return messageService.findAll(); }
 
+    @GetMapping("/group/{id}")
+    public List<Message> findAllByGroupId(@PathVariable("id") int id) {
+        return messageService.findAllByGroupId(id);
+    }
+
     @PostMapping("")
     public Message save(@RequestBody MessageDTO messageDTO) { return messageService.save(messageDTO); }
 }

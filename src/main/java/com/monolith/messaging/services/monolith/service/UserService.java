@@ -25,27 +25,10 @@ public class UserService {
     }
 
     public User save(User user) {
-//        String firstName = userDTO.getFirstName();
-//        String lastName = userDTO.getLastName();
-//        String username = userDTO.getUsername();
-//        String email = userDTO.getEmail();
-//        Set<Group> groups = new HashSet<>();
-//        for (Integer i : userDTO.getGroupIds())
-//            groups.add(new Group(i));
-//        User user = new User(0, firstName, lastName, username, email, groups);
         return userRepo.save(user);
     }
 
     public User findByUserId(int id) {
         return userRepo.findByUserId(id);
-    }
-
-    public User addGroupUser(int userId, int groupId) {
-        User user = userRepo.findByUserId(userId);
-        Group group = groupRepo.findByGroupId(groupId);
-        Set<Group> groups = user.getGroups();
-        groups.add(group);
-        user.setGroups(groups);
-        return userRepo.save(user);
     }
 }
